@@ -20,7 +20,7 @@ function that will mimic the original printf()
 static int	ft_check(va_list args, const char *format, int i, int ret)
 {
 	if (format[i + 1] == 'c')
-		ret += ft_format_c(va_arg(args, int));
+		ret = ft_format_c(va_arg(args, int));
 	else if (format[i + 1] == 's')
 		ret = ft_format_s(va_arg(args, char *));
 	else if (format[i + 1] == 'p')
