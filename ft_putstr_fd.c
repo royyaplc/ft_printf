@@ -6,13 +6,13 @@
 /*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:29:38 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 14:35:13 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/20 16:18:51 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd_pf(char *s, int fd)
 {
 	int	i;
 

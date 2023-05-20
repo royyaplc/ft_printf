@@ -6,7 +6,7 @@
 /*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:30:55 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 14:42:01 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/20 16:19:31 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,28 @@ static void	ft_write_num(int n, int fd)
 	}
 	while (tens != 0)
 	{
-		ft_putchar_fd((n / tens) + '0', fd);
+		ft_putchar_fd_pf((n / tens) + '0', fd);
 		n = n - n / tens * tens;
 		tens /= 10;
 	}
 	return ;
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd_pf(int n, int fd)
 {
 	if (n == 0)
 	{
-		ft_putchar_fd('0', fd);
+		ft_putchar_fd_pf('0', fd);
 		return ;
 	}
 	if (n == -2147483648)
 	{
-		ft_putstr_fd("-2147483648", fd);
+		ft_putstr_fd_pf("-2147483648", fd);
 		return ;
 	}
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		ft_putchar_fd_pf('-', fd);
 		n *= -1;
 	}
 	ft_write_num(n, fd);

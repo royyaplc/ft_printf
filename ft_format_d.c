@@ -6,7 +6,7 @@
 /*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:54:50 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 14:55:24 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/20 16:22:12 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_format_d(int num)
 
 	digits = 0;
 	n = num;
+	if (n == 0)
+		digits = 1;
 	if (n < 0)
 	{
 		digits = 1;
@@ -29,6 +31,6 @@ int	ft_format_d(int num)
 		n /= 10;
 		++digits;
 	}
-	ft_putnbr_fd(num, 1);
+	ft_putnbr_fd_pf(num, 1);
 	return (digits);
 }

@@ -6,13 +6,13 @@
 /*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:26:04 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 14:35:16 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/20 16:18:36 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_pf(const char *str)
 {
 	size_t	len;
 

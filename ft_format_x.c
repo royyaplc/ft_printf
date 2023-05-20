@@ -6,7 +6,7 @@
 /*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:37:05 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 15:22:56 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/20 16:20:27 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static void	ft_put_hex(unsigned int num, int digits, int x)
 	while (base16 != 0)
 	{
 		if (x == 0)
-			ft_putchar_fd(set_lowercase[(num / base16)], 1);
+			ft_putchar_fd_pf(set_lowercase[(num / base16)], 1);
 		else
-			ft_putchar_fd(set_uppercase[(num / base16)], 1);
+			ft_putchar_fd_pf(set_uppercase[(num / base16)], 1);
 		num %= base16;
 		base16 /= 16;
 	}
@@ -49,7 +49,7 @@ int	ft_format_x(unsigned int num, int x)
 	n = num;
 	if (num == 0)
 	{
-		ft_putchar_fd('0', 1);
+		ft_putchar_fd_pf('0', 1);
 		return (1);
 	}
 	while (n != 0)

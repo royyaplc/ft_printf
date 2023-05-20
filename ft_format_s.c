@@ -6,7 +6,7 @@
 /*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:53:17 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 15:55:16 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/20 16:20:59 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_format_s(char *str)
 	i = -1;
 	if (!str)
 	{
-		ft_putstr_fd("(null)", 1);
+		ft_putstr_fd_pf("(null)", 1);
 		return (6);
 	}
 	while (str[++i])
