@@ -15,6 +15,8 @@ Write a library that contains ft_printf(), a
 function that will mimic the original printf()
 */
 
+#include "ft_printf.h"
+
 static int	ft_check(va_list args, const char *format, int i, int ret)
 {
 	if (format[i + 1] == 'c')
