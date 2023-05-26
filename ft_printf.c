@@ -16,24 +16,55 @@ function that will mimic the original printf()
 */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-static int	ft_check(va_list args, const char *format, int i, int ret)
+static void	ft_flag(const char *format, int *i, int *flag)
 {
-	if (format[i + 1] == 'c')
+	flag[0] = 0;
+	flag[1] = 0;
+	flag[2] = 0;
+	while (format[*i + 1])
+	{
+		if (format[*i + 1] == '#')
+		{	
+			flag[0] = 1;
+			++*i;
+		}
+		else if (format[*i + 1] == ' ')
+		{
+			flag[1] = 1;
+			++*i;
+		}
+		else if (format[*i + 1] == '+')
+		{
+			flag[2] = 1;
+			++*i;
+		}
+		else
+			return ;
+	}
+}
+
+static int	ft_check(va_list args, const char *format, int *i, int ret)
+{
+	int	flag[3];
+
+	ft_flag(format, i, flag);
+	if (format[*i + 1] == 'c')
 		ret = ft_format_c(va_arg(args, int));
-	else if (format[i + 1] == 's')
+	else if (format[*i + 1] == 's')
 		ret = ft_format_s(va_arg(args, char *));
-	else if (format[i + 1] == 'p')
+	else if (format[*i + 1] == 'p')
 		ret = ft_format_p((unsigned long long int)va_arg(args, void *));
-	else if (format[i + 1] == 'i' || format[i + 1] == 'd')
-		ret = ft_format_d(va_arg(args, int));
-	else if (format[i + 1] == 'u')
+	else if (format[*i + 1] == 'i' || format[*i + 1] == 'd')
+		ret = ft_format_d(va_arg(args, int), flag);
+	else if (format[*i + 1] == 'u')
 		ret = ft_format_u(va_arg(args, unsigned int));
-	else if (format[i + 1] == 'x')
+	else if (format[*i + 1] == 'x')
 		ret = ft_format_x(va_arg(args, unsigned int), 0);
-	else if (format[i + 1] == 'X')
+	else if (format[*i + 1] == 'X')
 		ret = ft_format_x(va_arg(args, unsigned int), 1);
-	else if (format[i + 1] == '%')
+	else if (format[*i + 1] == '%')
 		ret = write(1, "%", 1);
 	else
 		return (-1);
@@ -56,7 +87,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			check = ft_check(args, format, i, ret);
+			check = ft_check(args, format, &i, ret);
 			if (check == -1)
 				return (-1);
 			ret += check;
