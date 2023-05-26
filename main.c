@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lyap <lyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 13:35:10 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/26 16:47:45 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/26 21:09:31 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	main(void)
 	ft_printf("Characters printed = %d\n\n", len);
 	len = printf("String with %s\n", "another string in it.");
 	ft_printf("Characters printed = %i\n\n", len);
-	len = ft_printf("String with some digits (%+ d) in it.\n", -54321);
+	len = ft_printf("String with some digits (%+# d) in it.\n", 54321);
 	ft_printf("Characters printed = %i\n\n", len);
 	len = ft_printf("MAX Unsigned int = %u\n", UINT_MAX);
 	ft_printf("Characters printed = %i\n\n", len);
-	len = printf("String with a hex number = %##X\n", 45215);
+	len = ft_printf("String with a hex number = %##x\n", 45215);
 	ft_printf("Characters printed = %i\n\n", len);
 	len = ft_printf("100%% - String with percentage symbol\n");
 	ft_printf("Characters printed = %i\n\n", len);

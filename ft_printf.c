@@ -61,9 +61,9 @@ static int	ft_check(va_list args, const char *format, int *i, int ret)
 	else if (format[*i + 1] == 'u')
 		ret = ft_format_u(va_arg(args, unsigned int));
 	else if (format[*i + 1] == 'x')
-		ret = ft_format_x(va_arg(args, unsigned int), 0);
+		ret = ft_format_x(va_arg(args, unsigned int), 0, flag);
 	else if (format[*i + 1] == 'X')
-		ret = ft_format_x(va_arg(args, unsigned int), 1);
+		ret = ft_format_x(va_arg(args, unsigned int), 1, flag);
 	else if (format[*i + 1] == '%')
 		ret = write(1, "%", 1);
 	else

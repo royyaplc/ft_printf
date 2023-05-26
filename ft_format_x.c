@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lyap <lyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:37:05 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/20 16:20:27 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/26 21:05:45 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_put_hex(unsigned int num, int digits, int x);
+static void	ft_put_hex(unsigned int num, int digits, int x, int *flag);
 
-static void	ft_put_hex(unsigned int num, int digits, int x)
+static void	ft_put_hex(unsigned int num, int digits, int x, int *flag)
 {
 	char		*set_lowercase;
 	char		*set_uppercase;
@@ -28,6 +28,13 @@ static void	ft_put_hex(unsigned int num, int digits, int x)
 		base16 *= 16;
 		--digits;
 	}
+	if (flag[0] == 1)
+	{
+		if (x == 0)
+			ft_putstr_fd_pf("0x", 1);
+		else
+			ft_putstr_fd_pf("0X", 1);
+	}
 	while (base16 != 0)
 	{
 		if (x == 0)
@@ -40,7 +47,7 @@ static void	ft_put_hex(unsigned int num, int digits, int x)
 	return ;
 }
 
-int	ft_format_x(unsigned int num, int x)
+int	ft_format_x(unsigned int num, int x, int *flag)
 {
 	int				digits;
 	unsigned int	n;
@@ -57,6 +64,8 @@ int	ft_format_x(unsigned int num, int x)
 		n /= 16;
 		++digits;
 	}
-	ft_put_hex(num, digits, x);
+	ft_put_hex(num, digits, x, flag);
+	if (flag[0] == 1)
+		digits = digits + 2;
 	return (digits);
 }

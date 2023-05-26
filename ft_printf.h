@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lyap <lyap@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:21:49 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/26 16:30:00 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/26 20:45:25 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_format_c(int ch);
 int		ft_format_s(char *str);
 int		ft_format_d(int num, int *flag);
 int		ft_format_u(unsigned int num);
-int		ft_format_x(unsigned int num, int x);
+int		ft_format_x(unsigned int num, int x, int *flag);
 int		ft_format_p(unsigned long long int num);
 
 #endif
