@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyap <lyap@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: lyap <lyap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:37:05 by lyap              #+#    #+#             */
-/*   Updated: 2023/05/26 21:05:45 by lyap             ###   ########.fr       */
+/*   Updated: 2023/05/27 16:35:18 by lyap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_put_hex(unsigned int num, int digits, int x, int *flag);
+//static void	ft_put_hex(unsigned int num, int digits, int x, int *flag);
+
+static void	ft_x_flag(int *x, int *flag)
+{
+	if (flag[0] == 1)
+	{
+		if (*x == 0)
+			ft_putstr_fd_pf("0x", 1);
+		else
+			ft_putstr_fd_pf("0X", 1);
+	}
+}
 
 static void	ft_put_hex(unsigned int num, int digits, int x, int *flag)
 {
@@ -28,13 +39,7 @@ static void	ft_put_hex(unsigned int num, int digits, int x, int *flag)
 		base16 *= 16;
 		--digits;
 	}
-	if (flag[0] == 1)
-	{
-		if (x == 0)
-			ft_putstr_fd_pf("0x", 1);
-		else
-			ft_putstr_fd_pf("0X", 1);
-	}
+	ft_x_flag(&x, flag);
 	while (base16 != 0)
 	{
 		if (x == 0)

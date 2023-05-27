@@ -30,6 +30,8 @@ $(NAME): 	$(OBJS)
 $(OBJS):	%.o: %.c
 				$(CC) $(CFLAGS) -c $< -o $@
 
+bonus:		$(NAME)
+
 clean:		
 				$(RM) $(OBJS)
 
